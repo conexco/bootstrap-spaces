@@ -2,149 +2,109 @@
 // Should be used to modify the default spacing between objects (not between nodes of * the same object)
 // p,m = padding,margin
 // a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
-// x,s,m,l,n = extra-small(@x),small(@s),medium(@m),large(@l),none(0px)
+// x,s,m,l,n = extra-small(@x),small(@s),medium(@m),large(@l),none(0)
 // New: Bootstrap 3 viewports added: *,-xs,-sm,-md,-lg = all, XS only, SM only, MD only, LG only
 
-@n: 0;
+//Assign variables for standalone use
+
+@screen-xs-max: 767px;
+
+@screen-sm-min:768px;
+@screen-sm-max:991px;
+
+@screen-md-min:992px;
+@screen-md-max:1199px;
+
+@screen-lg-min:1200px;
+
+// Default space values
 @x: 3px;
 @s: 5px;
 @m: 10px;
 @l: 20px;
-// Padding
-.spaces-mixin(@vp) {
-  .ptn@{vp}, .pvn@{vp}, .pan@{vp} {
-    padding-top: @n;
-  }
-  .ptx@{vp}, .pvx@{vp}, .pax@{vp} {
-    padding-top: @x;
-  }
-  .pts@{vp}, .pvs@{vp}, .pas@{vp} {
-    padding-top: @s;
-  }
-  .ptm@{vp}, .pvm@{vp}, .pam@{vp} {
-    padding-top: @m;
-  }
-  .ptl@{vp}, .pvl@{vp}, .pal@{vp} {
-    padding-top: @l;
-  }
-  .prn@{vp}, .phn@{vp}, .pan@{vp} {
-    padding-right: @n;
-  }
-  .prx@{vp}, .phx@{vp}, .pax@{vp} {
-    padding-right: @x;
-  }
-  .prs@{vp}, .phs@{vp}, .pas@{vp} {
-    padding-right: @s;
-  }
-  .prm@{vp}, .phm@{vp}, .pam@{vp} {
-    padding-right: @m;
-  }
-  .prl@{vp}, .phl@{vp}, .pal@{vp} {
-    padding-right: @l;
-  }
-  .pbn@{vp}, .pvn@{vp}, .pan@{vp} {
-    padding-bottom: @n;
-  }
-  .pbx@{vp}, .pvx@{vp}, .pax@{vp} {
-    padding-bottom: @x;
-  }
-  .pbs@{vp}, .pvs@{vp}, .pas@{vp} {
-    padding-bottom: @s;
-  }
-  .pbm@{vp}, .pvm@{vp}, .pam@{vp} {
-    padding-bottom: @m;
-  }
-  .pbl@{vp}, .pvl@{vp}, .pal@{vp} {
-    padding-bottom: @l;
-  }
-  .pln@{vp}, .phn@{vp}, .pan@{vp} {
-    padding-left: @n;
-  }
-  .plx@{vp}, .phx@{vp}, .pax@{vp} {
-    padding-left: @x;
-  }
-  .pls@{vp}, .phs@{vp}, .pas@{vp} {
-    padding-left: @s;
-  }
-  .plm@{vp}, .phm@{vp}, .pam@{vp} {
-    padding-left: @m;
-  }
-  .pll@{vp}, .phl@{vp}, .pal@{vp} {
-    padding-left: @l;
-  }
 
-  // Margin
-  .mtn@{vp}, .mvn@{vp}, .man@{vp} {
-    margin-top: @n;
+// Spaces mixin including padding & margin
+.spaces-mixin(@pre,@space, @vp) {
+  .@{pre}tn@{vp}, .@{pre}vn@{vp}, .@{pre}an@{vp} {
+    @{space}-top: 0;
   }
-  .mtx@{vp}, .mvx@{vp}, .max@{vp} {
-    margin-top: @x;
+  .@{pre}tx@{vp}, .@{pre}vx@{vp}, .@{pre}ax@{vp} {
+    @{space}-top: @x;
   }
-  .mts@{vp}, .mvs@{vp}, .mas@{vp} {
-    margin-top: @s;
+  .@{pre}ts@{vp}, .@{pre}vs@{vp}, .@{pre}as@{vp} {
+    @{space}-top: @s;
   }
-  .mtm@{vp}, .mvm@{vp}, .mam@{vp} {
-    margin-top: @m;
+  .@{pre}tm@{vp}, .@{pre}vm@{vp}, .@{pre}am@{vp} {
+    @{space}-top: @m;
   }
-  .mtl@{vp}, .mvl@{vp}, .mal@{vp} {
-    margin-top: @l;
+  .@{pre}tl@{vp}, .@{pre}vl@{vp}, .@{pre}al@{vp} {
+    @{space}-top: @l;
   }
-  .mrn@{vp}, .mhn@{vp}, .man@{vp} {
-    margin-right: @n;
+  .@{pre}rn@{vp}, .@{pre}hn@{vp}, .@{pre}an@{vp} {
+    @{space}-right: 0;
   }
-  .mrx@{vp}, .mhx@{vp}, .max@{vp} {
-    margin-right: @x;
+  .@{pre}rx@{vp}, .@{pre}hx@{vp}, .@{pre}ax@{vp} {
+    @{space}-right: @x;
   }
-  .mrs@{vp}, .mhs@{vp}, .mas@{vp} {
-    margin-right: @s;
+  .@{pre}rs@{vp}, .@{pre}hs@{vp}, .@{pre}as@{vp} {
+    @{space}-right: @s;
   }
-  .mrm@{vp}, .mhm@{vp}, .mam@{vp} {
-    margin-right: @m;
+  .@{pre}rm@{vp}, .@{pre}hm@{vp}, .@{pre}am@{vp} {
+    @{space}-right: @m;
   }
-  .mrl@{vp}, .mhl@{vp}, .mal@{vp} {
-    margin-right: @l;
+  .@{pre}rl@{vp}, .@{pre}hl@{vp}, .@{pre}al@{vp} {
+    @{space}-right: @l;
   }
-  .mbn@{vp}, .mvn@{vp}, .man@{vp} {
-    margin-bottom: @n;
+  .@{pre}bn@{vp}, .@{pre}vn@{vp}, .@{pre}an@{vp} {
+    @{space}-bottom: 0;
   }
-  .mbx@{vp}, .mvx@{vp}, .max@{vp} {
-    margin-bottom: @x;
+  .@{pre}bx@{vp}, .@{pre}vx@{vp}, .@{pre}ax@{vp} {
+    @{space}-bottom: @x;
   }
-  .mbs@{vp}, .mvs@{vp}, .mas@{vp} {
-    margin-bottom: @s;
+  .@{pre}bs@{vp}, .@{pre}vs@{vp}, .@{pre}as@{vp} {
+    @{space}-bottom: @s;
   }
-  .mbm@{vp}, .mvm@{vp}, .mam@{vp} {
-    margin-bottom: @m;
+  .@{pre}bm@{vp}, .@{pre}vm@{vp}, .@{pre}am@{vp} {
+    @{space}-bottom: @m;
   }
-  .mbl@{vp}, .mvl@{vp}, .mal@{vp} {
-    margin-bottom: @l;
+  .@{pre}bl@{vp}, .@{pre}vl@{vp}, .@{pre}al@{vp} {
+    @{space}-bottom: @l;
   }
-  .mln@{vp}, .mhn@{vp}, .man@{vp} {
-    margin-left: @n;
+  .@{pre}ln@{vp}, .@{pre}hn@{vp}, .@{pre}an@{vp} {
+    @{space}-left: 0;
   }
-  .mlx@{vp}, .mhx@{vp}, .max@{vp} {
-    margin-left: @x;
+  .@{pre}lx@{vp}, .@{pre}hx@{vp}, .@{pre}ax@{vp} {
+    @{space}-left: @x;
   }
-  .mls@{vp}, .mhs@{vp}, .mas@{vp} {
-    margin-left: @s;
+  .@{pre}ls@{vp}, .@{pre}hs@{vp}, .@{pre}as@{vp} {
+    @{space}-left: @s;
   }
-  .mlm@{vp}, .mhm@{vp}, .mam@{vp} {
-    margin-left: @m;
+  .@{pre}lm@{vp}, .@{pre}hm@{vp}, .@{pre}am@{vp} {
+    @{space}-left: @m;
   }
-  .mll@{vp}, .mhl@{vp}, .mal@{vp} {
-    margin-left: @l;
+  .@{pre}ll@{vp}, .@{pre}hl@{vp}, .@{pre}al@{vp} {
+    @{space}-left: @l;
   }
 }
-.spaces-mixin(~'');
+
+
+// Generate the output
+.spaces-mixin(p,padding,~'');
+.spaces-mixin(m,margin,~'');
+
 @media (max-width: @screen-xs-max) {
-  .spaces-mixin(-xs);
+  .spaces-mixin(p,padding,-xs);
+  .spaces-mixin(m,margin,-xs);
 }
-@media (min-width: @screen-sm-min)and(max-width: @screen-sm-max){
-  .spaces-mixin(-sm);
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max){
+  .spaces-mixin(p,padding,-sm);
+  .spaces-mixin(m,margin,-sm);
 }
-@media (min-width: @screen-md-min)and(max-width: @screen-md-max){
-  .spaces-mixin(-md);
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max){
+  .spaces-mixin(p,padding,-sm);
+  .spaces-mixin(m,margin,-sm);
 }
 @media (min-width: @screen-lg-min){
-  .spaces-mixin(-lg);
+  .spaces-mixin(p,padding,-lg);
+  .spaces-mixin(m,margin,-lg);
 }
