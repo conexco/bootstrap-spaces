@@ -1,0 +1,150 @@
+//Based on spaces.less from the designmodo Flat-UI Kit - https://github.com/designmodo/Flat-UI/blob/master/less/spaces.less
+// Should be used to modify the default spacing between objects (not between nodes of * the same object)
+// p,m = padding,margin
+// a,t,r,b,l,h,v = all,top,right,bottom,left,horizontal,vertical
+// x,s,m,l,n = extra-small(@x),small(@s),medium(@m),large(@l),none(0px)
+// New: Bootstrap 3 viewports added: *,-xs,-sm,-md,-lg = all, XS only, SM only, MD only, LG only
+
+@n: 0;
+@x: 3px;
+@s: 5px;
+@m: 10px;
+@l: 20px;
+// Padding
+.spaces-mixin(@vp) {
+  .ptn@{vp}, .pvn@{vp}, .pan@{vp} {
+    padding-top: @n;
+  }
+  .ptx@{vp}, .pvx@{vp}, .pax@{vp} {
+    padding-top: @x;
+  }
+  .pts@{vp}, .pvs@{vp}, .pas@{vp} {
+    padding-top: @s;
+  }
+  .ptm@{vp}, .pvm@{vp}, .pam@{vp} {
+    padding-top: @m;
+  }
+  .ptl@{vp}, .pvl@{vp}, .pal@{vp} {
+    padding-top: @l;
+  }
+  .prn@{vp}, .phn@{vp}, .pan@{vp} {
+    padding-right: @n;
+  }
+  .prx@{vp}, .phx@{vp}, .pax@{vp} {
+    padding-right: @x;
+  }
+  .prs@{vp}, .phs@{vp}, .pas@{vp} {
+    padding-right: @s;
+  }
+  .prm@{vp}, .phm@{vp}, .pam@{vp} {
+    padding-right: @m;
+  }
+  .prl@{vp}, .phl@{vp}, .pal@{vp} {
+    padding-right: @l;
+  }
+  .pbn@{vp}, .pvn@{vp}, .pan@{vp} {
+    padding-bottom: @n;
+  }
+  .pbx@{vp}, .pvx@{vp}, .pax@{vp} {
+    padding-bottom: @x;
+  }
+  .pbs@{vp}, .pvs@{vp}, .pas@{vp} {
+    padding-bottom: @s;
+  }
+  .pbm@{vp}, .pvm@{vp}, .pam@{vp} {
+    padding-bottom: @m;
+  }
+  .pbl@{vp}, .pvl@{vp}, .pal@{vp} {
+    padding-bottom: @l;
+  }
+  .pln@{vp}, .phn@{vp}, .pan@{vp} {
+    padding-left: @n;
+  }
+  .plx@{vp}, .phx@{vp}, .pax@{vp} {
+    padding-left: @x;
+  }
+  .pls@{vp}, .phs@{vp}, .pas@{vp} {
+    padding-left: @s;
+  }
+  .plm@{vp}, .phm@{vp}, .pam@{vp} {
+    padding-left: @m;
+  }
+  .pll@{vp}, .phl@{vp}, .pal@{vp} {
+    padding-left: @l;
+  }
+
+  // Margin
+  .mtn@{vp}, .mvn@{vp}, .man@{vp} {
+    margin-top: @n;
+  }
+  .mtx@{vp}, .mvx@{vp}, .max@{vp} {
+    margin-top: @x;
+  }
+  .mts@{vp}, .mvs@{vp}, .mas@{vp} {
+    margin-top: @s;
+  }
+  .mtm@{vp}, .mvm@{vp}, .mam@{vp} {
+    margin-top: @m;
+  }
+  .mtl@{vp}, .mvl@{vp}, .mal@{vp} {
+    margin-top: @l;
+  }
+  .mrn@{vp}, .mhn@{vp}, .man@{vp} {
+    margin-right: @n;
+  }
+  .mrx@{vp}, .mhx@{vp}, .max@{vp} {
+    margin-right: @x;
+  }
+  .mrs@{vp}, .mhs@{vp}, .mas@{vp} {
+    margin-right: @s;
+  }
+  .mrm@{vp}, .mhm@{vp}, .mam@{vp} {
+    margin-right: @m;
+  }
+  .mrl@{vp}, .mhl@{vp}, .mal@{vp} {
+    margin-right: @l;
+  }
+  .mbn@{vp}, .mvn@{vp}, .man@{vp} {
+    margin-bottom: @n;
+  }
+  .mbx@{vp}, .mvx@{vp}, .max@{vp} {
+    margin-bottom: @x;
+  }
+  .mbs@{vp}, .mvs@{vp}, .mas@{vp} {
+    margin-bottom: @s;
+  }
+  .mbm@{vp}, .mvm@{vp}, .mam@{vp} {
+    margin-bottom: @m;
+  }
+  .mbl@{vp}, .mvl@{vp}, .mal@{vp} {
+    margin-bottom: @l;
+  }
+  .mln@{vp}, .mhn@{vp}, .man@{vp} {
+    margin-left: @n;
+  }
+  .mlx@{vp}, .mhx@{vp}, .max@{vp} {
+    margin-left: @x;
+  }
+  .mls@{vp}, .mhs@{vp}, .mas@{vp} {
+    margin-left: @s;
+  }
+  .mlm@{vp}, .mhm@{vp}, .mam@{vp} {
+    margin-left: @m;
+  }
+  .mll@{vp}, .mhl@{vp}, .mal@{vp} {
+    margin-left: @l;
+  }
+}
+.spaces-mixin(~'');
+@media (max-width: @screen-xs-max) {
+  .spaces-mixin(-xs);
+}
+@media (min-width: @screen-sm-min)and(max-width: @screen-sm-max){
+  .spaces-mixin(-sm);
+}
+@media (min-width: @screen-md-min)and(max-width: @screen-md-max){
+  .spaces-mixin(-md);
+}
+@media (min-width: @screen-lg-min){
+  .spaces-mixin(-lg);
+}
